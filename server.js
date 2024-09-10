@@ -8,14 +8,14 @@ app.use(cors({origin: '*'}));
 
 let latestStatus = null;
 
-app.post('/api', (req, res) => {
+app.post('/api/status', (req, res) => {
   const { statusCode } = req.body;
   latestStatus = statusCode;
   console.log('Received status:', statusCode);
   res.sendStatus(200);
 });
 
-app.get('/api/status', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ statusCode: latestStatus });
 });
 
